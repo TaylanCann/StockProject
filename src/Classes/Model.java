@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Model {
+    
     public int Id;
     public String ModelName;
     
@@ -17,6 +18,7 @@ public class Model {
     public static int Add(String ModelName) {
 
         return Things.Add("Insert Into Model (ModelName) Values ('" + ModelName + "')");
+
     }
     
     public static int Delete(int Id) {

@@ -28,7 +28,7 @@ public class Product {
     public static int Add(int ModelId, int BrandId, int CategoryId, String GuaranteePeriod, float Price, int Stock) {
 
         return Things.Add("Insert Into Product (ModelId,BrandId,CategoryId,GuaranteePeriod,Price,Stock) Values (" + ModelId + "," + BrandId
-                + "," + CategoryId + ",'" + GuaranteePeriod + "'," + Price + "," + Stock + ")");
+                + "," + CategoryId + ",'" + GuaranteePeriod + "','" + String.valueOf(Price) + "'," + Stock + ")");
 
     }
 
@@ -51,6 +51,16 @@ public class Product {
         try {
             {
                 while (rs.next()) {
+                    
+                    System.out.println(Integer.parseInt(rs.getString("Id")));
+                    System.out.println(Integer.parseInt(rs.getString("ModelId")));
+                    System.out.println(Integer.parseInt(rs.getString("BrandId")));
+                    System.out.println(Integer.parseInt(rs.getString("CategoryId")));
+                    System.out.println(rs.getString("GuaranteePeriod"));
+                    System.out.println(Float.parseFloat(rs.getString("Price")));
+                    System.out.println(Integer.parseInt(rs.getString("Stock")));
+
+                    
                  Listeleme.add(new Product(Integer.parseInt(rs.getString("Id")),
                           Integer.parseInt(rs.getString("ModelId")),
                           Integer.parseInt(rs.getString("BrandId")),
@@ -70,18 +80,19 @@ public class Product {
 
     public static List<Product> Searching(int Id ) {
 
-        ResultSet rs = Things.List("Select * From Product where Id="+Id);
+        ResultSet rs = Things.List("Select * From Product where Id = " + Id);
 
         List<Product> Listeleme=new ArrayList<Product>();
         try {
             {
+                
                 while (rs.next()) {
                   Listeleme.add(new Product(Integer.parseInt(rs.getString("Id")),
                           Integer.parseInt(rs.getString("ModelId")),
                           Integer.parseInt(rs.getString("BrandId")),
                           Integer.parseInt(rs.getString("CategoryId")),
                           rs.getString("GuaranteePeriod"),
-                          Integer.parseInt(rs.getString("Price")),
+                          Float.parseFloat(rs.getString("Price")),
                           Integer.parseInt(rs.getString("Stock"))));
                 }
                 return Listeleme;

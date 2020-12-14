@@ -55,13 +55,13 @@ public class Sales {
                           Integer.parseInt(rs.getString("StaffId")),
                           Integer.parseInt(rs.getString("ProductId")),
                           rs.getString("ProcessDate"),
-                          Float.parseFloat(rs.getString("Price"))));
+                          Float.parseFloat(rs.getString("TotalPrice"))));
                 }
                 return Listeleme;
                         
             }
         } catch (Exception e) {
-            System.out.println("HataPrducastClass");
+            System.out.println("HataSaleClass");
         } 
         return null;
     }

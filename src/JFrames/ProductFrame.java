@@ -3,6 +3,7 @@ package JFrames;
 
 import Classes.Brand;
 import Classes.Categories;
+import Classes.Model;
 import Classes.Product;
 import java.util.List;
 
@@ -40,8 +41,6 @@ public class ProductFrame extends javax.swing.JFrame {
         ComboStockMarka = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        ComboStockKategori = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         txtNewModel = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -62,6 +61,11 @@ public class ProductFrame extends javax.swing.JFrame {
         jLabel14.setText("Adet");
 
         btnNewProduct.setText("Ekle");
+        btnNewProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewProductActionPerformed(evt);
+            }
+        });
 
         ComboStockModel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -70,6 +74,11 @@ public class ProductFrame extends javax.swing.JFrame {
         jLabel7.setText("Kaç Adet");
 
         btnAddStock.setText("Ekle");
+        btnAddStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddStockActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Olmayan bi ürün ekle");
 
@@ -82,6 +91,11 @@ public class ProductFrame extends javax.swing.JFrame {
         jLabel1.setText("Stok Artışı");
 
         btnAddBrand.setText("Marka Ekle");
+        btnAddBrand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddBrandActionPerformed(evt);
+            }
+        });
 
         ComboStockMarka.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -89,10 +103,6 @@ public class ProductFrame extends javax.swing.JFrame {
         jLabel3.setText("ÜRÜN EKLE");
 
         jLabel2.setText("MODEL");
-
-        jLabel4.setText("KATEGORİ");
-
-        ComboStockKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setText("Daha önce olmayan bi marka ekle");
 
@@ -125,12 +135,10 @@ public class ProductFrame extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel2)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(28, 28, 28)
+                                            .addComponent(jLabel6))
+                                        .addGap(51, 51, 51)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txtStockAdet)
-                                            .addComponent(ComboStockKategori, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(ComboStockModel, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(ComboStockMarka, javax.swing.GroupLayout.Alignment.TRAILING, 0, 73, Short.MAX_VALUE))
                                         .addGap(136, 136, 136)
@@ -162,36 +170,44 @@ public class ProductFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel8))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNewBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ComboStockMarka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel9)
-                        .addComponent(ComboNewBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel8)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNewBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(ComboStockMarka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel9)
+                                .addComponent(ComboNewBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(ComboStockModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddBrand)
+                            .addComponent(jLabel10)
+                            .addComponent(txtNewModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(ComboNewKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(txtStockAdet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(ComboStockModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddBrand)
-                    .addComponent(jLabel10)
-                    .addComponent(txtNewModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(ComboStockKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(ComboNewKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtStockAdet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
                     .addComponent(txtNewGuarantee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -205,7 +221,7 @@ public class ProductFrame extends javax.swing.JFrame {
                     .addComponent(jLabel14))
                 .addGap(28, 28, 28)
                 .addComponent(btnNewProduct)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         pack();
@@ -217,10 +233,12 @@ public class ProductFrame extends javax.swing.JFrame {
         
         ComboNewBrand.removeAllItems();
         ComboNewKategori.removeAllItems();
-        List<Product> ComboPro= Product.Listing();
+        ComboStockMarka.removeAllItems();
+        ComboStockModel.removeAllItems();
         
         List<Brand> BrandPro= Brand.Listing();
         List<Categories> CategoryPro= Categories.Listing();
+        List<Model> ModelPro= Model.Listing();
 
             for (int j = 0; j < BrandPro.size(); j++) {
                 ComboNewBrand.addItem(BrandPro.get(j).BrandName);
@@ -229,12 +247,61 @@ public class ProductFrame extends javax.swing.JFrame {
                 ComboNewKategori.addItem(CategoryPro.get(j).CategoryName);
             }
             
+
+        
+        for (int j = 0; j < BrandPro.size(); j++) {
+                ComboStockMarka.addItem(BrandPro.get(j).BrandName);
+        }
+        
+        for (int j = 0; j < ModelPro.size(); j++) {
+                ComboStockModel.addItem(ModelPro.get(j).ModelName);
+        }
+        
+       
         
      // </editor-fold>     
         
      
      
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnAddStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStockActionPerformed
+        
+        List<Product> listPro = Product.Listing();
+        List<Brand> BrandPro= Brand.Listing();
+        List<Model> ModelPro= Model.Listing();
+        
+        
+        
+        for (int i = 0; i < listPro.size(); i++) {
+            
+            if (listPro.get(i).BrandId == BrandPro.get(ComboStockMarka.getSelectedIndex()).Id && 
+                listPro.get(i).ModelId == ModelPro.get(ComboStockModel.getSelectedIndex()).Id) 
+            {
+             Product.Update(listPro.get(i).Id,listPro.get(i).ModelId , listPro.get(i).BrandId,listPro.get(i).CategoryId, listPro.get(i).GuaranteePeriod, listPro.get(i).Price, listPro.get(i).Stock + Integer.parseInt(txtStockAdet.getText()));                       
+             break;
+            }
+            
+        }
+        
+    }//GEN-LAST:event_btnAddStockActionPerformed
+
+    private void btnAddBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBrandActionPerformed
+        Brand.Add(txtNewBrand.getText());  
+    }//GEN-LAST:event_btnAddBrandActionPerformed
+
+    private void btnNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProductActionPerformed
+               
+        List<Model> ModelPro = Model.Listing();        
+        List<Brand> BrandPro = Brand.Listing();
+        List<Categories> Cpro = Categories.Listing();
+        
+        Model.Add(txtNewModel.getText());
+        
+       Product.Add(ModelPro.get(ModelPro.size()-1).Id, BrandPro.get(ComboNewBrand.getSelectedIndex()).Id,Cpro.get(ComboNewKategori.getSelectedIndex()).Id, txtNewGuarantee.getText(), Float.parseFloat(txtNewPrice.getText()) , Integer.parseInt(txtNewStock.getText()));
+        
+        
+    }//GEN-LAST:event_btnNewProductActionPerformed
 
 
     public static void main(String args[]) {
@@ -272,7 +339,6 @@ public class ProductFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboNewBrand;
     private javax.swing.JComboBox<String> ComboNewKategori;
-    private javax.swing.JComboBox<String> ComboStockKategori;
     private javax.swing.JComboBox<String> ComboStockMarka;
     private javax.swing.JComboBox<String> ComboStockModel;
     private javax.swing.JButton btnAddBrand;
@@ -286,7 +352,6 @@ public class ProductFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
