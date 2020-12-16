@@ -13,7 +13,8 @@ import JFrames.SaleUpdateListFrame;
 
 public class JavaStockProject {
 
-    //static JFrame SaleFrame = new SaleFrame();
+    static JFrame StaffFrame = new StaffFrame();
+    static JFrame SaleFrame = new SaleFrame();
     static JFrame ProductFrame = new ProductFrame();
     static JFrame MenuFrame = new MenuFrame();
     static JFrame NewCustomerFrame = new NewCustomerFrame();
@@ -22,8 +23,9 @@ public class JavaStockProject {
     
     
     public static void main(String[] args) {
-             
-        new NewStaffFrame().setVisible(true);
+        
+        new StaffFrame().setVisible(true);
+        //new SaleFrame().setVisible(true);
 
     }
     

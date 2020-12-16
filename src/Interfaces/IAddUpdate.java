@@ -11,8 +11,7 @@ public interface IAddUpdate extends IDelete {
 public static int Add (String SQL)   {
 
     try {
-        
-            System.out.println(SQL);
+
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");//Loading Driver
             
             Connection connection =( DriverManager.getConnection("jdbc:ucanaccess://" + IAddUpdate.class.getProtectionDomain().getCodeSource().getLocation().getPath() 

@@ -27,6 +27,7 @@ public class NewCustomerFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtCusTc = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -88,6 +89,13 @@ public class NewCustomerFrame extends javax.swing.JFrame {
 
         jLabel3.setText("Tc");
 
+        btnBack.setText("<----");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,11 +121,15 @@ public class NewCustomerFrame extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(75, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addComponent(btnBack)
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -142,6 +154,7 @@ public class NewCustomerFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public void updateList(){
@@ -173,11 +186,13 @@ public class NewCustomerFrame extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-            txtCusName.setText("");
-        txtCusSurname.setText("");
-        txtCusTc.setText("");
+    
         }
-
+        public void clean(){
+            txtCusName.setText("");
+            txtCusSurname.setText("");
+            txtCusTc.setText("");
+        }
     
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -201,11 +216,13 @@ public class NewCustomerFrame extends javax.swing.JFrame {
     private void btnAddCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCusActionPerformed
         Customer.Add(txtCusName.getText(), txtCusSurname.getText(), txtCusTc.getText()); 
         updateList();
+        clean();
     }//GEN-LAST:event_btnAddCusActionPerformed
 
     private void btnDeleteCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCusActionPerformed
         Customer.Delete(txtCusTc.getText());
         updateList();
+        clean();
     }//GEN-LAST:event_btnDeleteCusActionPerformed
 
     private void btnUpdateCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCusActionPerformed
@@ -218,8 +235,14 @@ public class NewCustomerFrame extends javax.swing.JFrame {
               break;
             }
         }
-       updateList(); 
+       updateList();
+       clean();
     }//GEN-LAST:event_btnUpdateCusActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        this.setVisible(false);
+        new MenuFrame().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,6 +281,7 @@ public class NewCustomerFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCus;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDeleteCus;
     private javax.swing.JButton btnUpdateCus;
     private javax.swing.JLabel jLabel1;

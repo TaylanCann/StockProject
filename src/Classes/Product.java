@@ -52,14 +52,7 @@ public class Product {
             {
                 while (rs.next()) {
                     
-                    System.out.println(Integer.parseInt(rs.getString("Id")));
-                    System.out.println(Integer.parseInt(rs.getString("ModelId")));
-                    System.out.println(Integer.parseInt(rs.getString("BrandId")));
-                    System.out.println(Integer.parseInt(rs.getString("CategoryId")));
-                    System.out.println(rs.getString("GuaranteePeriod"));
-                    System.out.println(Float.parseFloat(rs.getString("Price")));
-                    System.out.println(Integer.parseInt(rs.getString("Stock")));
-
+                 
                     
                  Listeleme.add(new Product(Integer.parseInt(rs.getString("Id")),
                           Integer.parseInt(rs.getString("ModelId")),

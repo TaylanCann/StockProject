@@ -6,7 +6,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -24,20 +24,17 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jButton4" min="-2" pref="94" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton6" min="-2" pref="94" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jButton1" min="-2" pref="94" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-                      <Component id="jButton7" min="-2" pref="94" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="btnStaff" min="-2" pref="162" max="-2" attributes="0"/>
+                  <Component id="btnSales" min="-2" pref="162" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="252" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnCustomer" max="32767" attributes="0"/>
+                  <Component id="btnProduct" pref="162" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="184" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -46,39 +43,51 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton7" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                  <Component id="btnCustomer" alignment="3" min="-2" pref="97" max="-2" attributes="0"/>
+                  <Component id="btnStaff" alignment="3" min="-2" pref="97" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton6" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
-                  <Component id="jButton4" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                  <Component id="btnProduct" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="btnSales" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="191" max="32767" attributes="0"/>
+              <EmptySpace pref="133" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnStaff">
       <Properties>
         <Property name="text" type="java.lang.String" value="Personel"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStaffActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="btnSales">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sat&#x131;&#x15f;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalesActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="btnProduct">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xdc;r&#xfc;n Ekle"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProductActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton7">
+    <Component class="javax.swing.JButton" name="btnCustomer">
       <Properties>
         <Property name="text" type="java.lang.String" value="M&#xfc;steri"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCustomerActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

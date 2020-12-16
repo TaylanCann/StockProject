@@ -7,6 +7,7 @@ import Classes.Model;
 import Classes.Product;
 import java.util.List;
 
+
 public class ProductFrame extends javax.swing.JFrame {
 
     public ProductFrame() {
@@ -44,6 +45,7 @@ public class ProductFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtNewModel = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -108,12 +110,20 @@ public class ProductFrame extends javax.swing.JFrame {
 
         jLabel11.setText("Kategori");
 
+        btnBack.setText("<------");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(316, 316, 316)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(243, 243, 243)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -168,8 +178,11 @@ public class ProductFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBack))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,6 +238,7 @@ public class ProductFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -272,7 +286,6 @@ public class ProductFrame extends javax.swing.JFrame {
         List<Model> ModelPro= Model.Listing();
         
         
-        
         for (int i = 0; i < listPro.size(); i++) {
             
             if (listPro.get(i).BrandId == BrandPro.get(ComboStockMarka.getSelectedIndex()).Id && 
@@ -302,6 +315,11 @@ public class ProductFrame extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnNewProductActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        this.setVisible(false);
+        new MenuFrame().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     public static void main(String args[]) {
@@ -343,6 +361,7 @@ public class ProductFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ComboStockModel;
     private javax.swing.JButton btnAddBrand;
     private javax.swing.JButton btnAddStock;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnNewProduct;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
